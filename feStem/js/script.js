@@ -5,7 +5,18 @@
 */
 const debugMode = true;
 
+
 const main = document.querySelector(".container#main");
+
+
+var curPage = 0;
+
+var answers = [];
+
+const eensBtn = "Eens";
+const dontKnowBtn = "Geen van beide";
+const oneensBtn = "Oneens";
+
 
 var mainItem = `
     <div class='w3-container w3-display-container'>
@@ -21,10 +32,35 @@ var mainItem = `
 main.innerHTML = mainItem;
 
 
+function questions(start){
+    
+    main.innerHTML = `
+    <div>
+        <h1>${subjects[curPage].title}</h1>
+        <p>${subjects[curPage].statement}</p>
+        <div>
+            <button id='eensButton'>${eensBtn}</button>
+            <button id='dontKnowButton'>${dontKnowBtn}</button>
+            <button id='oneensButton'>${oneensBtn}</button>
+        </div>
+    </div>
+    `;
+
+
+    if(!start){
+        curPage++
+    }
+
+}
+
+
 
 var startBtn = document.querySelector("#start_btn");
 
-if(debugMode){
-    console.log(startBtn);
+
+startBtn.onclick = function(){
+    questions(true);
 }
 
+
+console.log(subjects.length);
