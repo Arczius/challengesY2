@@ -43,19 +43,42 @@ const buttonsHolder = `
 `;
 
 function questions(start){
-    if(!start){
-        curPage++
-    }
-    
-    main.innerHTML = `
-    <div>
+    if(curPage != subjects.length - 1){
+
+        if(!start){
+            curPage++
+        }
+        
+        main.innerHTML = `
+        <div>
         <h1>${subjects[curPage].title}</h1>
         <p>${subjects[curPage].statement}</p>
         ${buttonsHolder}
-    </div>
-    `;
-    console.log(eensBtn)
+        </div>
+        `;
+        eensBtn = document.querySelector("#eensButton");
+        idkBtn = document.querySelector("#dontKnowButton");
+        oneensBtn = document.querySelector("#oneensButton")
+        
+        eensBtn.onclick = function(){
+            questions(false);
+            answers.push("pro");
+        }
+        idkBtn.onclick = function(){
+            questions(false);
+            answers.push("none");
+        }
+        oneensBtn.onclick = function(){
+            questions(false);
+            answers.push("contra");
+        }
+    }
+    else{
+        console.log(answers);
+    }
 }
+
+
 
 var startBtn = document.querySelector("#start_btn");
 
