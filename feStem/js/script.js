@@ -18,7 +18,7 @@ const dontKnowBtn = "Geen van beide";
 const oneensBtn = "Oneens";
 
 
-var mainItem = `
+var mainInner = `
     <div class='w3-container w3-display-container'>
         <div class=''>
             <h1>StemWijzer</h1>
@@ -29,7 +29,7 @@ var mainItem = `
     </div>
 `;
 
-main.innerHTML = mainItem;
+main.innerHTML = mainInner;
 
 
 function questions(start){
