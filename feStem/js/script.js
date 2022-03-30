@@ -31,6 +31,13 @@ var mainInner = `
 
 main.innerHTML = mainInner;
 
+const buttonsHolder = `
+        <div>
+            <button id='eensButton' class='w3-btn w3-round-large w3-green'>${eensBtn}</button>
+            <button id='dontKnowButton' class='w3-btn w3-white w3-round-large w3-border w3-border-black'>${dontKnowBtn}</button>
+            <button id='oneensButton' class='w3-btn w3-round-large w3-red'>${oneensBtn}</button>
+        </div>
+`;
 
 function questions(start){
     
@@ -38,11 +45,7 @@ function questions(start){
     <div>
         <h1>${subjects[curPage].title}</h1>
         <p>${subjects[curPage].statement}</p>
-        <div>
-            <button id='eensButton'>${eensBtn}</button>
-            <button id='dontKnowButton'>${dontKnowBtn}</button>
-            <button id='oneensButton'>${oneensBtn}</button>
-        </div>
+        ${buttonsHolder}
     </div>
     `;
 
@@ -50,17 +53,12 @@ function questions(start){
     if(!start){
         curPage++
     }
-
 }
 
-
-
 var startBtn = document.querySelector("#start_btn");
-
 
 startBtn.onclick = function(){
     questions(true);
 }
-
 
 console.log(subjects.length);
