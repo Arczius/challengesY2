@@ -13,9 +13,12 @@ var curPage = 0;
 
 var answers = [];
 
-const eensBtn = "Eens";
-const dontKnowBtn = "Geen van beide";
-const oneensBtn = "Oneens";
+const eensBtnLabel = "Eens";
+const dontKnowBtnLabel = "Geen van beide";
+const oneensBtnLabel = "Oneens";
+
+// assigning the variables eensBtn, idkBtn and oneensBtn, to be undefined
+var [eensBtn, idkBtn, oneensBtn] = [undefined, undefined, undefined];
 
 
 var mainInner = `
@@ -33,13 +36,16 @@ main.innerHTML = mainInner;
 
 const buttonsHolder = `
         <div>
-            <button id='eensButton' class='w3-btn w3-round-large w3-green'>${eensBtn}</button>
-            <button id='dontKnowButton' class='w3-btn w3-white w3-round-large w3-border w3-border-black'>${dontKnowBtn}</button>
-            <button id='oneensButton' class='w3-btn w3-round-large w3-red'>${oneensBtn}</button>
+            <button id='eensButton' class='w3-btn w3-round-large w3-green'>${eensBtnLabel}</button>
+            <button id='dontKnowButton' class='w3-btn w3-white w3-round-large w3-border w3-border-black'>${dontKnowBtnLabel}</button>
+            <button id='oneensButton' class='w3-btn w3-round-large w3-red'>${oneensBtnLabel}</button>
         </div>
 `;
 
 function questions(start){
+    if(!start){
+        curPage++
+    }
     
     main.innerHTML = `
     <div>
@@ -48,11 +54,7 @@ function questions(start){
         ${buttonsHolder}
     </div>
     `;
-
-
-    if(!start){
-        curPage++
-    }
+    console.log(eensBtn)
 }
 
 var startBtn = document.querySelector("#start_btn");
