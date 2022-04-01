@@ -75,6 +75,18 @@ function questions(start){
     }
     else{
         console.log(answers);
+        let items = "";
+        for(let i = 0; i != subjects.length; i++){
+            items = items + "<li>"+ subjects[i].statement + ": " + answers[i] + "</li>"
+        }
+        main.innerHTML = `
+            <div>
+                <h2>done</h2>
+                <ul>
+                    ${items}
+                </ul>
+            </div>
+        `;
     }
 }
 
