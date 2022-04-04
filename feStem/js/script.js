@@ -51,9 +51,9 @@ function questions(start){
         
         main.innerHTML = `
         <div>
-        <h1>${subjects[curPage].title}</h1>
-        <p>${subjects[curPage].statement}</p>
-        ${buttonsHolder}
+            <h1>${subjects[curPage].title}</h1>
+            <p>${subjects[curPage].statement}</p>
+            ${buttonsHolder}
         </div>
         `;
         eensBtn = document.querySelector("#eensButton");
